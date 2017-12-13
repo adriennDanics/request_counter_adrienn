@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Statistics</title>
+    </head>
+    <body>
+        {% for item in stats %}
+        <p>Request counter: {{ item }}</p>
+        {% endfor %}
+        <p><a href="/request-counter">This is a link to main page</a></p>
+    </body>
+</html>

@@ -14,7 +14,16 @@ def route_main():
 def route_counter():
     global REQUEST_COUNTER
     REQUEST_COUNTER += 1
+    with open('statistics.txt', 'w') as file:
+        file.write(str(REQUEST_COUNTER))
     return redirect('/')
+
+
+@app.route('/statistics')
+def route_stats():
+    with open('statistics.txt', 'r') as file:
+        stats = file.read()
+    return render_template('statistics.html', stats=stats)
 
 
 if __name__ == '__main__':
